@@ -11,8 +11,10 @@ $( function() {
 
   var $dialog = $( "#dialog-form" ).dialog({
     autoOpen: false,
-    height: 400,
-    width: 350,
+    height: 600,
+    width: 800,
+    resizable: false,
+    draggable: false,
     modal: true,
     title: "Current User is: " + $("#username").text(),
     buttons: {

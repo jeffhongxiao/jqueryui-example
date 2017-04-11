@@ -9,6 +9,10 @@
 
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.js"></script>
 
   <script src="./dialog.js"></script>
 </head>
@@ -18,6 +22,28 @@
 
   <form>
     <fieldset>
+      <div class="jumbotron">
+        <h2 class="display-3">Mitigation</h2>
+
+        <hr class="my-2">
+
+        <div class="card">
+          <div class="card-title">Mitigation A</div>
+          <div class="card-text">
+            Description of Mitigation A
+          </div>
+          <a  class="btn btn-primary">Start</a>
+          <a  class="btn btn-danger">Stop</a>
+        </div>
+
+        <hr class="my-2">
+
+        <div>
+          Mitigation A:
+          <button type="button" class="btn btn-primary">Start</button>
+          <button type="button" class="btn btn-danger">Stop</button>
+        </div>
+      </div>
 
       <!-- Allow form submission with keyboard without duplicating the dialog button -->
       <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
