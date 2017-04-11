@@ -1,23 +1,10 @@
 'use strict';
 
 $( function() {
-    // var $name = $( "#name" );
-    // var $email = $( "#email" );
-    // var $password = $( "#password" );
-    // var $allFields = $( [] ).add( name ).add( email ).add( password );
-
   function genAddUser(username) {
     var foo = function() {
-      var valid = true;
-      // $allFields.removeClass( "ui-state-error" );
-
-      // $name.val(username);
-
-      if ( valid ) {
-        console.log("username = " + username);
-        $dialog.dialog( "close" );
-      }
-      return valid;
+      console.log("username = " + username);
+      $dialog.dialog( "close" );
     };
     return foo;
   }
@@ -40,7 +27,6 @@ $( function() {
     },
     close: function() {
       form[ 0 ].reset();
-//      allFields.removeClass( "ui-state-error" );
     }
   });
 
