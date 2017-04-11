@@ -1,1 +1,1 @@
-<?php include_once("dialog/modal.html"); ?>
+<?php include_once("index.html"); ?>
