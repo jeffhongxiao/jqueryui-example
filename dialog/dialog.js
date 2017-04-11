@@ -39,31 +39,32 @@ $( function() {
     }
   }
 
-function genAddUser(username) {
-  var foo = function() {
-    var valid = true;
-    allFields.removeClass( "ui-state-error" );
+  function genAddUser(username) {
+    var foo = function() {
+      var valid = true;
+      allFields.removeClass( "ui-state-error" );
 
-//    valid = valid && checkLength( name, "username", 3, 16 );
-    valid = valid && checkLength( email, "email", 6, 80 );
-    valid = valid && checkLength( password, "password", 5, 16 );
+      //valid = valid && checkLength( name, "username", 3, 16 );
+      valid = valid && checkLength( email, "email", 6, 80 );
+      valid = valid && checkLength( password, "password", 5, 16 );
 
-//    valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
-    valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" );
-    valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
+      //valid = valid && checkRegexp( name, /^[a-z]([0-9a-z_\s])+$/i, "Username may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
+      valid = valid && checkRegexp( email, emailRegex, "eg. ui@jquery.com" );
+      valid = valid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
 
-    if ( valid ) {
-      $( "#users tbody" ).append( "<tr>" +
-        "<td>" + username + "</td>" +
-        "<td>" + email.val() + "</td>" +
-        "<td>" + password.val() + "</td>" +
-      "</tr>" );
-      dialog.dialog( "close" );
-    }
-    return valid;
-  };
-  return foo;
-}
+      if ( valid ) {
+        // $( "#users tbody" ).append( "<tr>" +
+        //   "<td>" + username + "</td>" +
+        //   "<td>" + email.val() + "</td>" +
+        //   "<td>" + password.val() + "</td>" +
+        // "</tr>" );
+        console.log("username = " + username);
+        dialog.dialog( "close" );
+      }
+      return valid;
+    };
+    return foo;
+  }
 
   var dialog = $( "#dialog-form" ).dialog({
     autoOpen: false,
@@ -71,9 +72,12 @@ function genAddUser(username) {
     width: 350,
     modal: true,
     buttons: {
-      "Create an account": genAddUser('Test User'), // $(this).data('username').text()
+      "Create an account": function() {
+        var addUser = genAddUser($(this).data('username'));
+        addUser();
+      },
       Cancel: function() {
-        console.log("username is: " + $(this).data('username').text());
+        console.log("username is: " + $(this).data('username'));
         dialog.dialog( "close" );
       }
     },
@@ -91,6 +95,6 @@ function genAddUser(username) {
   });
 
   $( "#create-user" ).button().on( "click", function() {
-    dialog.data('username', $("#username")).dialog( "open" );
+    dialog.data('username', $("#username").text()).dialog( "open" );
   });
 } );
